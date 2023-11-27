@@ -13,9 +13,9 @@ public class Main {
     }
 
     public static boolean checkForPalindrome(String text) {
-        LinkedList<Character> stack = new LinkedList<>();  // stack de açsam bu instance ı fark etmezdi. LinkedList stack gibi çalışır. başa ekler sondan çıkarır.
+        LinkedList<Character> stack = new LinkedList<>();  // stack de açsam bu instance ı fark etmezdi. LinkedList stack gibi çalışır. ekleme yaptıkça son eklediğini çıkarır. LIFO !!!
         StringBuilder noPunctions = new StringBuilder();
-        String newLowerCasedText = text.toLowerCase(Locale.ENGLISH);
+        String newLowerCasedText = text.toLowerCase(Locale.ENGLISH).trim().replaceAll("[ '.,?!_-]","");
 
         for(int i=0; i< newLowerCasedText.length(); i++){
             char x = newLowerCasedText.charAt(i);  // String 'in i. karakteri, array gibi string elemanlarını geziniyor.
