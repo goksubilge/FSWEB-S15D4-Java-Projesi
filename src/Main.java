@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,6 +22,13 @@ public class Main {
         System.out.println(checkForPalindromeSecond("hello"));
         System.out.println(checkForPalindromeSecond("Racecar"));
         System.out.println(checkForPalindromeSecond("Don't nod"));
+
+        System.out.println("*****---convertDecimalNumbersToBinary---*****");
+
+        System.out.println(convertDecimalNumbersToBinary(5));
+        System.out.println(convertDecimalNumbersToBinary(6));
+        System.out.println(convertDecimalNumbersToBinary(13));
+        System.out.println(convertDecimalNumbersToBinary(50));
     }
 
     public static boolean checkForPalindrome(String text) {
@@ -67,7 +75,23 @@ public class Main {
         return true;
     }
 
+    public static String convertDecimalNumbersToBinary(int num){
+        final int base = 2;
+        Stack digits = new Stack();
+        while (num > 0){
+            digits.push(num % base);
+            num = num / 2;
+        }
+        String bits = "";
+        while (!digits.isEmpty()){
+            bits += digits.pop();
+        }
+        return bits;
+    }
+
 }
 
 // The java.util.LinkedList.pop() method is used to remove and return the top element from the stack represented by the LinkedList. The method simply pops out an element present at the top of the stack. This method is similar to removeFirst method in LinkedList. Syntax:
 //LinkedListObject.pop()
+
+// Stack => en soldan eklemeye ve silmeye başlar
